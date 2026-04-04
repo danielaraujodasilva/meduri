@@ -181,6 +181,18 @@
             70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
             100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
         }
+
+        .insta-item {
+  background: #111;
+  padding: 10px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.instagram-media {
+  width: 100% !important;
+  min-width: 100% !important;
+}
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70">
@@ -264,85 +276,38 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="team-card">
-                            <img src="https://assets.lummi.ai/assets/QmbwsRrUcUVDuoLeVqp4iDNgLQGtAxyBA1yEpNqSTR3gBd" class="team-img" alt="Meduri tatuador" loading="lazy">
+                            <img src="img/meduri.png" class="team-img" alt="Meduri tatuador" loading="lazy">
                             <div class="team-overlay">
                                 <h4>Meduri</h4>
-                                <p>Especialista em realismo e fechamentos gigantes. +12 anos de experiência, apaixonado por peças que contam histórias.</p>
+                                <p>Gustavo Meduri, mais conhecido como Meduri, é tatuador especializado nos estilos Realismo e Black and Gray, reconhecido pela extrema atenção aos detalhes, precisão técnica e acabamento refinado em cada peça. Seu trabalho se destaca pela profundidade, contraste e fidelidade às referências, buscando sempre um resultado marcante e duradouro.</p>
+
+<p>Além da qualidade artística, Meduri preza por um atendimento cuidadoso e personalizado, entendendo a ideia de cada cliente e acompanhando todo o processo com atenção, desde a criação até a finalização da tatuagem. Seu compromisso é proporcionar não apenas um excelente resultado estético, mas também uma experiência segura, confortável e profissional.</p>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="team-card">
-                            <img src="https://images.squarespace-cdn.com/content/v1/5c7ca27a01232c45a11a3f4f/f854edd9-6d94-469d-9275-a22777ea7b63/0C9A5611.jpg" class="team-img" alt="Lucas tatuador" loading="lazy">
+                            <img src="img/vinicius.png" class="team-img" alt="Lucas tatuador" loading="lazy">
                             <div class="team-overlay">
-                                <h4>Lucas Black</h4>
-                                <p>Expert em blackwork e geométrico. Foco em peças minimalistas e impactantes. +8 anos no ramo.</p>
+                                <h4>Vinícios</h4>
+                                <p>Vinícios, mais conhecido como Vini, é tatuador de estilo versátil, atuando com diferentes propostas e técnicas, o que permite desenvolver projetos únicos e personalizados para cada cliente. Seu trabalho é marcado pela adaptabilidade, criatividade e atenção aos detalhes, sempre buscando harmonia, boa aplicação e um resultado final consistente, independentemente do estilo escolhido.</p>
+
+<p>No atendimento, Vini se destaca pela proximidade e cuidado em entender a ideia de cada pessoa, oferecendo orientação durante todo o processo criativo e de execução. Seu foco vai além da tatuagem em si, priorizando uma experiência leve, segura e bem acompanhada, garantindo que cada cliente se sinta confiante e satisfeito do início ao fim.</p>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="team-card">
-                            <img src="https://thumbs.dreamstime.com/b/delicate-fine-line-tattoo-blooming-flowers-woman-back-subtle-ink-shading-creates-depth-skin-minimalist-black-white-403847740.jpg" class="team-img" alt="Ana tatuadora" loading="lazy">
+                            <img src="img/veronica.png" class="team-img" alt="Ana tatuadora" loading="lazy">
                             <div class="team-overlay">
-                                <h4>Ana Fine</h4>
-                                <p>Especialista em fine line e floral. Perfeita para tatuagens femininas delicadas e elegantes.</p>
+                                <h4>Verônica</h4>
+                                <p>Veronica é tatuadora especializada nos estilos geek e artes conceituais, destacando-se pela criatividade, originalidade e riqueza de detalhes em cada projeto. Seu trabalho traz composições únicas, com forte influência de universos fictícios e ideias autorais, sempre buscando equilíbrio, identidade visual e acabamento de alto nível.</p>
+
+<p>No contato com os clientes, Veronica valoriza uma abordagem atenciosa e individualizada, dedicando tempo para compreender cada proposta e transformar conceitos em tatuagens exclusivas. Seu compromisso é oferecer não apenas um resultado artístico marcante, mas também uma experiência acolhedora, segura e pensada em cada etapa do processo.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="team-card">
-                            <img src="https://assets.lummi.ai/assets/QmbwsRrUcUVDuoLeVqp4iDNgLQGtAxyBA1yEpNqSTR3gBd" class="team-img" alt="João tatuador" loading="lazy">
-                            <div class="team-overlay">
-                                <h4>João Old</h4>
-                                <p>Old school e tradicional com twist moderno. Clássicos que nunca saem de moda.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="team-card">
-                            <img src="https://images.squarespace-cdn.com/content/v1/5c7ca27a01232c45a11a3f4f/f854edd9-6d94-469d-9275-a22777ea7b63/0C9A5611.jpg" class="team-img" alt="Carla tatuadora" loading="lazy">
-                            <div class="team-overlay">
-                                <h4>Carla Neo</h4>
-                                <p>Neo tradicional e colorido. Cores vibrantes e narrativas fortes na pele.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="team-card">
-                            <img src="https://thumbs.dreamstime.com/b/delicate-fine-line-tattoo-blooming-flowers-woman-back-subtle-ink-shading-creates-depth-skin-minimalist-black-white-403847740.jpg" class="team-img" alt="Rafael tatuador" loading="lazy">
-                            <div class="team-overlay">
-                                <h4>Rafael Dot</h4>
-                                <p>Dotwork e mandalas. Detalhes infinitos e precisão milimétrica.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="team-card">
-                            <img src="https://assets.lummi.ai/assets/QmbwsRrUcUVDuoLeVqp4iDNgLQGtAxyBA1yEpNqSTR3gBd" class="team-img" alt="Sofia tatuadora" loading="lazy">
-                            <div class="team-overlay">
-                                <h4>Sofia Realism</h4>
-                                <p>Realismo preto e cinza. Retratos e animais com emoção real.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="team-card">
-                            <img src="https://images.squarespace-cdn.com/content/v1/5c7ca27a01232c45a11a3f4f/f854edd9-6d94-469d-9275-a22777ea7b63/0C9A5611.jpg" class="team-img" alt="Victor tatuador" loading="lazy">
-                            <div class="team-overlay">
-                                <h4>Victor Cover</h4>
-                                <p>Cover-ups e reworks. Transforma tatuagens antigas em obras-primas.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="team-card">
-                            <img src="https://thumbs.dreamstime.com/b/delicate-fine-line-tattoo-blooming-flowers-woman-back-subtle-ink-shading-creates-depth-skin-minimalist-black-white-403847740.jpg" class="team-img" alt="Maria tatuadora" loading="lazy">
-                            <div class="team-overlay">
-                                <h4>Maria Script</h4>
-                                <p>Lettering e caligrafia. Frases, poemas e textos com estilo único.</p>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -350,85 +315,24 @@
         </div>
     </section>
 
-    <!-- Portfólio com 6 imagens -->
-    <section id="portfolio" class="py-5 bg-black">
-        <div class="container" data-aos="fade-up">
-            <h2 class="text-center mb-5">Portfólio</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="hover-container shadow" data-bs-toggle="modal" data-bs-target="#modalPort1">
-                        <img class="hover-img" src="https://inknationstudio.com/wp-content/uploads/2025/07/thumbnail-leg.png" alt="Sleeve de perna biomecânico realista" loading="lazy">
-                        <div class="overlay">
-                            <h5>Sleeve Biomecânico</h5>
-                            <p>Realismo futurista | ~18h</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="hover-container shadow" data-bs-toggle="modal" data-bs-target="#modalPort2">
-                        <img class="hover-img" src="https://primitivetattoobali.com/wp-content/uploads/2025/07/Primitive-Tattoo-Ink-Portfolio.webp" alt="Fechamento de braço samurai" loading="lazy">
-                        <div class="overlay">
-                            <h5>Fechamento Samurai</h5>
-                            <p>Estilo japonês | Uma sessão</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="hover-container shadow" data-bs-toggle="modal" data-bs-target="#modalPort3">
-                        <img class="hover-img" src="https://inknationstudio.com/wp-content/uploads/2025/07/thumbnail-full-sleeve.png" alt="Sleeve realista misto" loading="lazy">
-                        <div class="overlay">
-                            <h5>Sleeve Realista Misto</h5>
-                            <p>Figura + animal | Contraste alto</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="hover-container shadow" data-bs-toggle="modal" data-bs-target="#modalPort4">
-                        <img class="hover-img" src="https://tattoos.gallery/unifytattoofl.com/images/gallery/Fairy%20Mermaid%20Forest%20Tattoo.jpg" alt="Tatuagem de floresta mágica" loading="lazy">
-                        <div class="overlay">
-                            <h5>Floresta Mágica</h5>
-                            <p>Colorido detalhado | ~15h</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="hover-container shadow" data-bs-toggle="modal" data-bs-target="#modalPort5">
-                        <img class="hover-img" src="https://tattoos.gallery/soringabor.com/images/gallery/bio%20oni%20Sorin.jpg" alt="Fechamento bio orgânico" loading="lazy">
-                        <div class="overlay">
-                            <h5>Bio Orgânico</h5>
-                            <p>Estilo orgânico | Uma sessão</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="hover-container shadow" data-bs-toggle="modal" data-bs-target="#modalPort6">
-                        <img class="hover-img" src="https://images.stockcake.com/public/0/0/d/00dcdec4-d941-458f-8128-638c8191196c/sacred-golden-ankh-stockcake.jpg" alt="Tatuagem simbólica Ankh" loading="lazy">
-                        <div class="overlay">
-                            <h5>Ankh Sagrado</h5>
-                            <p>Simbolismo dourado | ~10h</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
-    <!-- Modais Portfólio (exemplo para o primeiro, copie e mude id/src para os outros) -->
-    <div class="modal fade" id="modalPort1" tabindex="-1">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content bg-dark text-light">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-gold">Sleeve Biomecânico de Perna</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <img src="https://inknationstudio.com/wp-content/uploads/2025/07/thumbnail-leg.png" class="img-fluid rounded mb-3" alt="Detalhe sleeve biomecânico" loading="lazy">
-                    <p>Estilo biomecânico com detalhes metálicos e orgânicos. Adaptável para fechamento em sessão única.</p>
-                    <p><strong>Estilo:</strong> Realismo futurista | <strong>Tempo:</strong> ~18 horas | <strong>Preço estimado:</strong> R$1200</p>
-                </div>
-            </div>
-        </div>
+<section id="galeria" class="py-5">
+  <div class="container">
+    
+    <div class="text-center mb-5">
+      <h2>Galeria</h2>
+      <p>Alguns dos nossos trabalhos mais recentes</p>
     </div>
+
+    <div class="row g-4" id="instaGallery"></div>
+
+  </div>
+</section>
+
+
+
+
 
     <!-- Depoimentos com link Instagram -->
     <section id="depoimentos" class="py-5">
@@ -598,5 +502,30 @@
             },
         });
     </script>
+    <script>
+const posts = [
+  "https://www.instagram.com/p/DWEfEtstY5J/",
+  "https://www.instagram.com/p/DWBi7icO2an/",
+  "https://www.instagram.com/p/DUgrU4KEQl2/",
+  "https://www.instagram.com/p/DPMIi3xDZJE/"
+];
+
+const container = document.getElementById("instaGallery");
+
+posts.forEach(link => {
+  const col = document.createElement("div");
+  col.className = "col-12 col-md-6 col-lg-4";
+
+  col.innerHTML = `
+    <div class="insta-item">
+      <blockquote class="instagram-media" data-instgrm-permalink="${link}" data-instgrm-version="14"></blockquote>
+    </div>
+  `;
+
+  container.appendChild(col);
+});
+</script>
+
+<script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
