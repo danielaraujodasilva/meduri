@@ -4,260 +4,534 @@
   <meta charset="UTF-8">
   <title>Calculadora de Taxas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1020;
+      --bg-soft: #121a2d;
+      --panel: rgba(15, 23, 42, 0.9);
+      --panel-strong: #18233b;
+      --border: rgba(148, 163, 184, 0.18);
+      --text: #e5eefc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-strong: #0ea5e9;
+      --success: #22c55e;
+      --shadow: 0 24px 60px rgba(2, 6, 23, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background: #f4f6f9;
-      color: #212529;
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 32%),
+        linear-gradient(180deg, #08101d 0%, var(--bg) 100%);
+      color: var(--text);
+      font-family: "Segoe UI", sans-serif;
     }
 
-    .card {
-      border: none;
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-      animation: fadeUp 0.6s ease;
+    .app-shell {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 32px 16px;
     }
 
-    h2 {
+    .calculator-card {
+      width: min(100%, 960px);
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(18px);
+    }
+
+    .hero {
+      padding: 32px 32px 20px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: #7dd3fc;
+      font-size: 0.78rem;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .content {
+      padding: 32px;
+    }
+
+    .form-panel,
+    .summary-panel,
+    .table-panel {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .form-panel {
+      padding: 24px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #dbeafe;
     }
 
     .form-label {
+      margin-bottom: 8px;
+      color: #cbd5e1;
+      font-size: 0.9rem;
       font-weight: 600;
+    }
+
+    .form-control,
+    .form-select {
+      min-height: 52px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text);
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: rgba(56, 189, 248, 0.65);
+      box-shadow: 0 0 0 0.24rem rgba(56, 189, 248, 0.16);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text);
+    }
+
+    .form-select option {
+      color: #0f172a;
+    }
+
+    .hint {
+      margin-top: 12px;
+      color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .form-control, .form-select {
-      border-radius: 12px;
+    .btn-calculate {
+      min-height: 54px;
+      border: 0;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #00111c;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 18px 32px rgba(14, 165, 233, 0.25);
     }
 
-    .btn-primary {
-      border-radius: 14px;
-      padding: 12px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
+    .btn-calculate:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 40px rgba(14, 165, 233, 0.32);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(13,110,253,0.25);
+    .summary-panel {
+      display: grid;
+      gap: 1px;
+      overflow: hidden;
     }
 
-    .result-box {
-      background: linear-gradient(135deg, #0d6efd, #4f8dff);
-      color: #fff;
-      border-radius: 18px;
-      padding: 24px;
-      animation: fadeUp 0.5s ease;
+    .summary-header {
+      padding: 22px 24px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(34, 197, 94, 0.12));
     }
 
-    .highlight {
+    .summary-header strong {
+      display: block;
       font-size: 1.4rem;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .summary-item {
+      padding: 20px 24px;
+      background: var(--bg-soft);
+    }
+
+    .summary-item span {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .summary-item strong {
+      font-size: 1.2rem;
+      color: #f8fafc;
+    }
+
+    .table-panel {
+      margin-top: 24px;
+      overflow: hidden;
+    }
+
+    .table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .table-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .badge-soft {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: #86efac;
+      font-size: 0.82rem;
       font-weight: 700;
     }
 
-    .parcelas-box {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 20px;
-      margin-top: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      animation: fadeUp 0.5s ease;
+    .table {
+      margin: 0;
+      color: var(--text);
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
+    .table > :not(caption) > * > * {
+      padding: 14px 24px;
+      border-bottom-color: rgba(148, 163, 184, 0.12);
+      background: transparent;
+    }
+
+    .table thead th {
+      color: #cbd5e1;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .table tbody tr:hover td {
+      background: rgba(56, 189, 248, 0.05);
+    }
+
+    .empty-state {
+      padding: 22px 24px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 767px) {
+      .hero,
+      .content {
+        padding: 24px 20px;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .table-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .table-responsive {
+        overflow-x: auto;
+      }
+
+      .table > :not(caption) > * > * {
+        padding: 14px 16px;
+      }
     }
   </style>
 </head>
 <body>
+  <main class="app-shell">
+    <section class="calculator-card">
+      <header class="hero">
+        <span class="eyebrow">Calculadora Meduri</span>
+        <h1>Descubra o valor final sem adivinhação</h1>
+        <p>Escolha a bandeira, o tipo de venda e informe o valor. Para crédito parcelado, a calculadora já mostra automaticamente todas as opções de parcelamento.</p>
+      </header>
 
-<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-8 col-xl-7">
+      <div class="content">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-5">
+            <div class="form-panel">
+              <h2 class="section-title">Dados da venda</h2>
 
-      <div class="card p-4 p-md-5">
-        <h2 class="mb-4 text-center">💳 Calculadora de Taxas</h2>
+              <div class="mb-3">
+                <label class="form-label" for="modo">Modo de cálculo</label>
+                <select id="modo" class="form-select">
+                  <option value="liquido">Quero receber um valor líquido</option>
+                  <option value="bruto">Vou cobrar um valor do cliente</option>
+                </select>
+              </div>
 
-        <div class="mb-3">
-          <label class="form-label">Modo de cálculo</label>
-          <select id="modo" class="form-select">
-            <option value="liquido">Quero receber um valor líquido</option>
-            <option value="bruto">Vou cobrar um valor do cliente</option>
-          </select>
-        </div>
+              <div class="mb-3">
+                <label class="form-label" for="bandeira">Bandeira</label>
+                <select id="bandeira" class="form-select"></select>
+              </div>
 
-        <div class="row g-3">
-          <div class="col-md-6">
-            <label class="form-label">Bandeira</label>
-            <select id="bandeira" class="form-select"></select>
-          </div>
+              <div class="mb-3">
+                <label class="form-label" for="tipo">Tipo de venda</label>
+                <select id="tipo" class="form-select"></select>
+              </div>
 
-          <div class="col-md-6">
-            <label class="form-label">Tipo de venda</label>
-            <select id="tipo" class="form-select"></select>
-          </div>
+              <div class="mb-4">
+                <label class="form-label" id="labelValor" for="valor">Valor líquido desejado (R$)</label>
+                <input type="number" step="0.01" id="valor" class="form-control" placeholder="0,00">
+                <div class="hint" id="contextoParcelamento">Ao selecionar crédito parcelado, a simulação completa aparece logo abaixo.</div>
+              </div>
 
-          <div class="col-md-6">
-            <label class="form-label">Parcelas</label>
-            <select id="parcelas" class="form-select"></select>
-          </div>
-
-          <div class="col-md-6">
-            <label class="form-label" id="labelValor">Valor líquido desejado (R$)</label>
-            <input type="number" step="0.01" id="valor" class="form-control">
-          </div>
-        </div>
-
-        <button class="btn btn-primary mt-4 w-100" onclick="calcular()">Calcular</button>
-
-        <div id="resultado" class="result-box mt-4 d-none">
-          <div class="row">
-            <div class="col-md-6">
-              <p>Valor cobrado</p>
-              <div class="highlight">R$ <span id="valorCobrar"></span></div>
-            </div>
-            <div class="col-md-6">
-              <p>Valor líquido</p>
-              <div class="highlight">R$ <span id="valorLiquido"></span></div>
+              <button class="btn btn-calculate w-100" onclick="calcular()">Calcular</button>
             </div>
           </div>
-          <hr class="opacity-25">
-          <p>Taxas: <strong>R$ <span id="valorTaxa"></span></strong></p>
-          <p>Percentual: <strong><span id="percentual"></span>%</strong></p>
-        </div>
 
-        <div id="parcelamento" class="parcelas-box d-none">
-          <h5 class="mb-3">Simulação de parcelamento</h5>
-          <table class="table table-sm">
-            <thead>
-              <tr>
-                <th>Parcelas</th>
-                <th>Total</th>
-                <th>Valor da parcela</th>
-              </tr>
-            </thead>
-            <tbody id="listaParcelas"></tbody>
-          </table>
-        </div>
+          <div class="col-lg-7">
+            <div id="resultado" class="summary-panel d-none">
+              <div class="summary-header">
+                <span class="form-label mb-2 d-block">Resumo do cálculo</span>
+                <strong id="headlineResumo">Tudo pronto para conferir</strong>
+                <small class="text-body-secondary" id="subResumo"></small>
+              </div>
 
+              <div class="summary-grid">
+                <div class="summary-item">
+                  <span>Valor cobrado</span>
+                  <strong>R$ <span id="valorCobrar"></span></strong>
+                </div>
+                <div class="summary-item">
+                  <span>Valor líquido</span>
+                  <strong>R$ <span id="valorLiquido"></span></strong>
+                </div>
+                <div class="summary-item">
+                  <span>Taxas</span>
+                  <strong>R$ <span id="valorTaxa"></span></strong>
+                </div>
+                <div class="summary-item">
+                  <span>Percentual</span>
+                  <strong><span id="percentual"></span>%</strong>
+                </div>
+              </div>
+            </div>
+
+            <div id="parcelamento" class="table-panel d-none">
+              <div class="table-header">
+                <div>
+                  <h2 class="section-title mb-1">Simulação de parcelamento</h2>
+                  <p>Comparativo automático para todas as quantidades disponíveis.</p>
+                </div>
+                <span class="badge-soft" id="badgeParcelamento">Parcelado</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table align-middle">
+                  <thead>
+                    <tr>
+                      <th>Parcelas</th>
+                      <th>Total</th>
+                      <th>Valor da parcela</th>
+                      <th>Taxa</th>
+                    </tr>
+                  </thead>
+                  <tbody id="listaParcelas"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="estadoInicial" class="table-panel">
+              <div class="empty-state">
+                Preencha os dados ao lado para ver o resumo e, quando houver parcelamento, a tabela completa com todas as parcelas.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
+  </main>
 
-    </div>
-  </div>
-</div>
+  <script>
+    const taxas = {
+      Visa: {
+        "Crédito à Vista": { taxa: 3.4 },
+        "Débito": { taxa: 0.99 },
+        "Crédito Parcelado": { 2: 4.96, 3: 5.63, 4: 6.3, 5: 7.02, 6: 7.7, 7: 8.82, 8: 9.69, 9: 10.65, 10: 11.13, 11: 12.3, 12: 13.29 }
+      },
+      Mastercard: {
+        "Crédito à Vista": { taxa: 3.4 },
+        "Débito": { taxa: 0.99 },
+        "Crédito Parcelado": { 2: 4.96, 3: 5.63, 4: 6.3, 5: 7.02, 6: 7.7, 7: 8.82, 8: 9.69, 9: 10.65, 10: 11.13, 11: 12.3, 12: 13.29 }
+      },
+      Amex: {
+        "Crédito à Vista": { taxa: 3.9 },
+        "Crédito Parcelado": { 2: 5.56, 3: 6.23, 4: 6.9, 5: 7.62, 6: 8.3, 7: 9.42, 8: 10.29, 9: 11.25, 10: 11.73, 11: 12.9, 12: 13.89 }
+      },
+      Elo: {
+        "Crédito à Vista": { taxa: 3.95 },
+        "Débito": { taxa: 1.54 },
+        "Crédito Parcelado": { 2: 5.61, 3: 6.28, 4: 6.95, 5: 7.67, 6: 8.35, 7: 9.47, 8: 10.34, 9: 11.3, 10: 11.78, 11: 12.95, 12: 13.94 }
+      }
+    };
 
-<script>
-const taxas = {
-  Visa: {
-    "Crédito à Vista": { taxa: 3.4 },
-    "Débito": { taxa: 0.99 },
-    "Crédito Parcelado": { 2:4.96,3:5.63,4:6.3,5:7.02,6:7.7,7:8.82,8:9.69,9:10.65,10:11.13,11:12.3,12:13.29 }
-  },
-  Mastercard: {
-    "Crédito à Vista": { taxa: 3.4 },
-    "Débito": { taxa: 0.99 },
-    "Crédito Parcelado": { 2:4.96,3:5.63,4:6.3,5:7.02,6:7.7,7:8.82,8:9.69,9:10.65,10:11.13,11:12.3,12:13.29 }
-  },
-  Amex: {
-    "Crédito à Vista": { taxa: 3.9 },
-    "Crédito Parcelado": { 2:5.56,3:6.23,4:6.9,5:7.62,6:8.3,7:9.42,8:10.29,9:11.25,10:11.73,11:12.9,12:13.89 }
-  },
-  Elo: {
-    "Crédito à Vista": { taxa: 3.95 },
-    "Débito": { taxa: 1.54 },
-    "Crédito Parcelado": { 2:5.61,3:6.28,4:6.95,5:7.67,6:8.35,7:9.47,8:10.34,9:11.3,10:11.78,11:12.95,12:13.94 }
-  }
-};
+    const bandeira = document.getElementById("bandeira");
+    const tipo = document.getElementById("tipo");
+    const modo = document.getElementById("modo");
+    const labelValor = document.getElementById("labelValor");
+    const contextoParcelamento = document.getElementById("contextoParcelamento");
+    const estadoInicial = document.getElementById("estadoInicial");
+    const resultado = document.getElementById("resultado");
+    const boxParcelas = document.getElementById("parcelamento");
+    const lista = document.getElementById("listaParcelas");
 
-const bandeira = document.getElementById("bandeira");
-const tipo = document.getElementById("tipo");
-const parcelas = document.getElementById("parcelas");
-const modo = document.getElementById("modo");
-const labelValor = document.getElementById("labelValor");
-
-Object.keys(taxas).forEach(b => bandeira.innerHTML += `<option>${b}</option>`);
-
-bandeira.onchange = carregarTipos;
-tipo.onchange = carregarParcelas;
-modo.onchange = () => {
-  labelValor.innerText = modo.value === "liquido"
-    ? "Valor líquido desejado (R$)"
-    : "Valor que será cobrado (R$)";
-};
-
-carregarTipos();
-
-function carregarTipos() {
-  tipo.innerHTML = "";
-  Object.keys(taxas[bandeira.value]).forEach(t => tipo.innerHTML += `<option>${t}</option>`);
-  carregarParcelas();
-}
-
-function carregarParcelas() {
-  parcelas.innerHTML = "";
-  if (tipo.value === "Crédito Parcelado") {
-    Object.keys(taxas[bandeira.value][tipo.value]).forEach(p =>
-      parcelas.innerHTML += `<option value="${p}">${p}x</option>`
-    );
-  } else {
-    parcelas.innerHTML = `<option value="1">À vista</option>`;
-  }
-}
-
-function calcular() {
-  const valor = parseFloat(document.getElementById("valor").value);
-  if (!valor) return;
-
-  const taxaPerc = tipo.value === "Crédito Parcelado"
-    ? taxas[bandeira.value][tipo.value][parcelas.value]
-    : taxas[bandeira.value][tipo.value].taxa;
-
-  const taxa = taxaPerc / 100;
-  let bruto, liquido;
-
-  if (modo.value === "liquido") {
-    liquido = valor;
-    bruto = liquido / (1 - taxa);
-  } else {
-    bruto = valor;
-    liquido = bruto * (1 - taxa);
-  }
-
-  document.getElementById("valorCobrar").innerText = bruto.toFixed(2);
-  document.getElementById("valorLiquido").innerText = liquido.toFixed(2);
-  document.getElementById("valorTaxa").innerText = (bruto - liquido).toFixed(2);
-  document.getElementById("percentual").innerText = taxaPerc.toFixed(2);
-  document.getElementById("resultado").classList.remove("d-none");
-
-  const boxParcelas = document.getElementById("parcelamento");
-  const lista = document.getElementById("listaParcelas");
-  lista.innerHTML = "";
-
-  if (tipo.value === "Crédito Parcelado") {
-    Object.entries(taxas[bandeira.value]["Crédito Parcelado"]).forEach(([p, t]) => {
-      const taxaP = t / 100;
-      const total = modo.value === "liquido"
-        ? liquido / (1 - taxaP)
-        : bruto;
-
-      lista.innerHTML += `
-        <tr>
-          <td>${p}x</td>
-          <td>R$ ${total.toFixed(2)}</td>
-          <td>R$ ${(total / p).toFixed(2)}</td>
-        </tr>`;
+    Object.keys(taxas).forEach((item) => {
+      bandeira.innerHTML += `<option>${item}</option>`;
     });
-    boxParcelas.classList.remove("d-none");
-  } else {
-    boxParcelas.classList.add("d-none");
-  }
-}
-</script>
 
+    bandeira.addEventListener("change", carregarTipos);
+    tipo.addEventListener("change", atualizarContexto);
+    modo.addEventListener("change", atualizarLabelModo);
+
+    carregarTipos();
+    atualizarLabelModo();
+
+    function carregarTipos() {
+      tipo.innerHTML = "";
+      Object.keys(taxas[bandeira.value]).forEach((item) => {
+        tipo.innerHTML += `<option>${item}</option>`;
+      });
+      atualizarContexto();
+    }
+
+    function atualizarLabelModo() {
+      labelValor.innerText = modo.value === "liquido"
+        ? "Valor líquido desejado (R$)"
+        : "Valor que será cobrado (R$)";
+    }
+
+    function atualizarContexto() {
+      const parcelado = tipo.value === "Crédito Parcelado";
+      contextoParcelamento.innerText = parcelado
+        ? "Abaixo você verá o comparativo completo de 2x até 12x para a bandeira escolhida."
+        : "Para vendas à vista ou débito, o resumo mostra a taxa aplicada nessa modalidade.";
+    }
+
+    function formatCurrency(value) {
+      return Number(value).toFixed(2);
+    }
+
+    function calcular() {
+      const valor = parseFloat(document.getElementById("valor").value);
+      if (!valor) {
+        return;
+      }
+
+      let taxaPerc;
+      let bruto;
+      let liquido;
+
+      if (tipo.value === "Crédito Parcelado") {
+        const parcelasDisponiveis = Object.entries(taxas[bandeira.value][tipo.value]);
+        const referencia = parcelasDisponiveis[0];
+        taxaPerc = referencia[1];
+        const taxa = taxaPerc / 100;
+
+        if (modo.value === "liquido") {
+          liquido = valor;
+          bruto = liquido / (1 - taxa);
+        } else {
+          bruto = valor;
+          liquido = bruto * (1 - taxa);
+        }
+
+        preencherParcelamento(bruto, liquido);
+        document.getElementById("headlineResumo").innerText = "Resumo com base na menor parcela disponível";
+        document.getElementById("subResumo").innerText = "Use a tabela ao lado para comparar os valores em todas as quantidades de parcelas.";
+      } else {
+        taxaPerc = taxas[bandeira.value][tipo.value].taxa;
+        const taxa = taxaPerc / 100;
+
+        if (modo.value === "liquido") {
+          liquido = valor;
+          bruto = liquido / (1 - taxa);
+        } else {
+          bruto = valor;
+          liquido = bruto * (1 - taxa);
+        }
+
+        boxParcelas.classList.add("d-none");
+        document.getElementById("headlineResumo").innerText = "Resumo da operação";
+        document.getElementById("subResumo").innerText = "Taxa aplicada conforme a modalidade selecionada.";
+      }
+
+      document.getElementById("valorCobrar").innerText = formatCurrency(bruto);
+      document.getElementById("valorLiquido").innerText = formatCurrency(liquido);
+      document.getElementById("valorTaxa").innerText = formatCurrency(bruto - liquido);
+      document.getElementById("percentual").innerText = taxaPerc.toFixed(2);
+
+      estadoInicial.classList.add("d-none");
+      resultado.classList.remove("d-none");
+    }
+
+    function preencherParcelamento(bruto, liquido) {
+      lista.innerHTML = "";
+
+      Object.entries(taxas[bandeira.value]["Crédito Parcelado"]).forEach(([parcela, percentual]) => {
+        const taxaAtual = percentual / 100;
+        const total = modo.value === "liquido"
+          ? liquido / (1 - taxaAtual)
+          : bruto;
+
+        lista.innerHTML += `
+          <tr>
+            <td>${parcela}x</td>
+            <td>R$ ${formatCurrency(total)}</td>
+            <td>R$ ${formatCurrency(total / parcela)}</td>
+            <td>${percentual.toFixed(2)}%</td>
+          </tr>`;
+      });
+
+      document.getElementById("badgeParcelamento").innerText = `${bandeira.value} • parcelado`;
+      boxParcelas.classList.remove("d-none");
+    }
+  </script>
 </body>
 </html>
