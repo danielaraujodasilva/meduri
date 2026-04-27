@@ -13,8 +13,8 @@
       --panel: rgba(15, 23, 42, 0.9);
       --panel-strong: #18233b;
       --border: rgba(148, 163, 184, 0.18);
-      --text: #e5eefc;
-      --muted: #94a3b8;
+      --text: #f3f7ff;
+      --muted: #b3c0d4;
       --accent: #38bdf8;
       --accent-strong: #0ea5e9;
       --success: #22c55e;
@@ -122,7 +122,11 @@
       border-radius: 14px;
       border: 1px solid rgba(148, 163, 184, 0.22);
       background: rgba(15, 23, 42, 0.85);
-      color: var(--text);
+      color: #f8fafc;
+    }
+
+    .form-control::placeholder {
+      color: #94a3b8;
     }
 
     .form-control:focus,
@@ -130,11 +134,16 @@
       border-color: rgba(56, 189, 248, 0.65);
       box-shadow: 0 0 0 0.24rem rgba(56, 189, 248, 0.16);
       background: rgba(15, 23, 42, 0.98);
-      color: var(--text);
+      color: #f8fafc;
+    }
+
+    .form-select {
+      --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23e2e8f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
     }
 
     .form-select option {
-      color: #0f172a;
+      color: #f8fafc;
+      background: #0f172a;
     }
 
     .hint {
@@ -174,6 +183,11 @@
     .summary-header strong {
       display: block;
       font-size: 1.4rem;
+      color: #f8fafc;
+    }
+
+    .summary-header small {
+      color: #dbe7f5 !important;
     }
 
     .summary-grid {
@@ -243,10 +257,14 @@
     }
 
     .table thead th {
-      color: #cbd5e1;
+      color: #dbeafe;
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.04em;
+    }
+
+    .table tbody td {
+      color: #f8fafc;
     }
 
     .table tbody tr:hover td {
@@ -288,7 +306,7 @@
     <section class="calculator-card">
       <header class="hero">
         <span class="eyebrow">Calculadora Meduri</span>
-        <h1>Descubra o valor final sem adivinhação</h1>
+        <h1>Calculadora de taxas Ankh Tattoo</h1>
         <p>Escolha a bandeira, o tipo de venda e informe o valor. Para crédito parcelado, a calculadora já mostra automaticamente todas as opções de parcelamento.</p>
       </header>
 
@@ -331,7 +349,7 @@
               <div class="summary-header">
                 <span class="form-label mb-2 d-block">Resumo do cálculo</span>
                 <strong id="headlineResumo">Tudo pronto para conferir</strong>
-                <small class="text-body-secondary" id="subResumo"></small>
+                <small id="subResumo"></small>
               </div>
 
               <div class="summary-grid">
