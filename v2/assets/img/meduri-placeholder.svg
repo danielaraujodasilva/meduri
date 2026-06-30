@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-label="Meduri placeholder">
+  <defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#060504"/><stop offset="1" stop-color="#1b1209"/></linearGradient><linearGradient id="gold" x1="0" x2="1"><stop stop-color="#7a5126"/><stop offset=".55" stop-color="#e7bf7b"/><stop offset="1" stop-color="#5d3717"/></linearGradient></defs>
+  <rect width="900" height="700" fill="url(#bg)"/>
+  <circle cx="225" cy="180" r="150" fill="#c79a5a" opacity=".08"/>
+  <path d="M0 560 C220 420 400 690 900 470 L900 700 L0 700 Z" fill="#000" opacity=".45"/>
+  <g transform="translate(170 85)">
+    <path d="M220 110 C160 160 150 250 180 335 C215 430 340 435 385 337 C430 240 395 142 330 108 C300 92 250 92 220 110 Z" fill="#16120e" stroke="#76502a" stroke-width="4"/>
+    <path d="M175 158 C235 112 315 105 385 160 C370 92 290 62 222 82 C172 96 145 122 132 170 Z" fill="#070604"/>
+    <path d="M170 355 C115 405 82 490 80 610 L500 610 C494 500 455 414 390 355 C330 402 235 402 170 355 Z" fill="#0a0908" stroke="#75502b" stroke-width="3"/>
+    <path d="M196 255 C215 245 245 245 266 258" stroke="#c79a5a" stroke-width="4" fill="none" opacity=".6"/>
+    <path d="M305 258 C327 245 356 247 374 263" stroke="#c79a5a" stroke-width="4" fill="none" opacity=".6"/>
+    <path d="M275 275 C266 315 262 345 280 370" stroke="#6f4b27" stroke-width="4" fill="none"/>
+    <path d="M230 405 C280 430 345 420 382 390" stroke="#c79a5a" stroke-width="3" fill="none" opacity=".45"/>
+    <g stroke="url(#gold)" stroke-width="3" opacity=".55" fill="none">
+      <path d="M70 540 C180 500 280 520 388 595"/><path d="M95 500 C205 470 330 490 450 560"/><path d="M120 465 C252 450 360 470 500 520"/>
+    </g>
+  </g>
+  <text x="54" y="82" fill="#c79a5a" font-family="serif" font-size="24" letter-spacing="8">SOBRE O ARTISTA</text>
+  <text x="54" y="635" fill="#f0d09a" font-family="serif" font-size="62" letter-spacing="8">MEDURI</text>
+</svg>
