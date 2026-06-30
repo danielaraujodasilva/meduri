@@ -1,4 +1,4 @@
-/* Correções do hero v2: isola o Anúbis, reduz mistura com fundo e remove card invasor */
+/* Correções do hero v2: isola o Anúbis, reduz mistura com fundo e remove o card flutuante */
 .hero{
   background:linear-gradient(90deg,rgba(0,0,0,.97) 0%,rgba(0,0,0,.93) 42%,rgba(0,0,0,.84) 100%)!important;
   min-height:800px;
@@ -30,7 +30,7 @@
   position:relative!important;
   z-index:2!important;
   display:grid!important;
-  grid-template-columns:minmax(0,620px) 280px!important;
+  grid-template-columns:minmax(0,650px) 1fr!important;
   justify-content:space-between!important;
   gap:40px!important;
 }
@@ -68,17 +68,12 @@
 }
 
 .artist-card{
-  position:relative!important;
-  z-index:3!important;
-  background:linear-gradient(180deg,rgba(8,8,8,.88),rgba(3,3,3,.78))!important;
-  backdrop-filter:blur(10px);
-  border-color:rgba(197,157,94,.18)!important;
+  display:none!important;
 }
 
 @media(max-width:1200px){
   .hero{min-height:760px!important;}
   .hero-grid{grid-template-columns:1fr!important;max-width:760px!important;}
-  .artist-card{display:none!important;}
   .hero-bg{place-items:center right!important;opacity:.40!important;}
   .hero-bg::before{right:0;width:min(70vw,560px);height:min(70vw,560px);}
   .hero-bg img{width:min(64vw,520px)!important;transform:translate(6%,70px)!important;}
