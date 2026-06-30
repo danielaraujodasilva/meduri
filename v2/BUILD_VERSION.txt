@@ -1,0 +1,8 @@
+ANKH v2 deploy marker
+Created: 2026-06-30 20:55 BRT
+Latest relevant commits:
+- bcb0b8a Add visible version badge and bust hero cache
+- 1fb802d Mask Anubis background and add version badge styles
+- 80153b9 Remove floating artist card from hero
+
+If this file is not visible at /v2/BUILD_VERSION.txt on the live domain, the server is not pulling/deploying this repo path.
