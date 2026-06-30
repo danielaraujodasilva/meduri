@@ -5,17 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ANKH Tattoo | Meduri - Realismo Black & Grey</title>
   <meta name="description" content="Tatuagens autorais em realismo black and grey com Meduri. Projetos grandes, acabamento premium e atendimento em São Paulo.">
-  <meta name="theme-color" content="#090806">
+  <meta name="theme-color" content="#020202">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    .work-art{position:absolute;inset:0;display:block;background:radial-gradient(circle at 50% 35%,rgba(239,208,156,.20),transparent 24%),linear-gradient(145deg,#24170d,#050403 70%);transition:.35s}
-    .work-art:before{content:"";position:absolute;inset:12%;border:1px solid rgba(199,154,90,.28);border-radius:999px;box-shadow:inset 0 0 70px rgba(0,0,0,.7)}
-    .work-art:after{position:absolute;inset:auto 0 38%;text-align:center;color:#d8b372;font-family:Cinzel,serif;font-size:92px;line-height:1;text-shadow:0 20px 55px #000;opacity:.86}
+    :root{--bg:#020202;--panel:#080808;--line:rgba(197,157,94,.20);--gold:#c59d5e;--gold2:#f0d7a4;--text:#f4efe7;--muted:#9d968d}
+    body{background:#020202;background-image:linear-gradient(180deg,rgba(0,0,0,.74),rgba(0,0,0,.96)),url('assets/img/fundo.png');background-size:cover;background-attachment:fixed;background-position:center;color:var(--text)}
+    body:before{background:radial-gradient(circle at 18% 12%,rgba(197,157,94,.08),transparent 24%),radial-gradient(circle at 88% 28%,rgba(197,157,94,.06),transparent 28%)}
+    .site-header{background:rgba(2,2,2,.62);border-bottom-color:rgba(197,157,94,.18)}
+    .site-header.is-scrolled{background:rgba(2,2,2,.94)}
+    .hero{background:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.70) 42%,rgba(0,0,0,.38) 100%),url('assets/img/fundo.png');background-size:cover;background-position:center;min-height:800px}
+    .hero:before{content:"";position:absolute;inset:0;background:url('assets/img/ankh.png') no-repeat 8% 58%/360px auto;opacity:.10;filter:grayscale(1);mix-blend-mode:screen;pointer-events:none}
+    .hero-bg{place-items:center end;right:-4vw;opacity:1}
+    .hero-bg img{content:url('assets/img/anubis.png');height:auto;width:min(54vw,680px);max-width:none;object-fit:contain;filter:drop-shadow(0 45px 90px rgba(0,0,0,.95));transform:translateX(0)}
+    .hero-copy{max-width:650px}.hero h1{text-shadow:0 20px 80px #000,0 0 40px rgba(197,157,94,.10)}
+    .trust-grid,.artist-card,.steps article,.quote-row blockquote,.faq details,.contact-cards a{background:linear-gradient(180deg,rgba(10,10,10,.88),rgba(3,3,3,.74));border-color:rgba(197,157,94,.20)}
+    .portfolio,.process{background:linear-gradient(180deg,rgba(0,0,0,.88),rgba(0,0,0,.72))}
+    .about{background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.78)),url('assets/img/ankh.png') no-repeat right 8% center/430px auto;border-color:rgba(197,157,94,.18)}
+    .final-cta{background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.70)),url('assets/img/fundo.png');background-size:cover;background-position:center}
+    .work-art{position:absolute;inset:0;display:block;background:linear-gradient(180deg,rgba(0,0,0,.20),rgba(0,0,0,.86)),url('assets/img/ankh.png') center/cover no-repeat;transition:.35s;filter:grayscale(.25) contrast(1.08) brightness(.72)}
+    .work-art:before{content:"";position:absolute;inset:12%;border:1px solid rgba(197,157,94,.24);border-radius:999px;box-shadow:inset 0 0 90px rgba(0,0,0,.85)}
+    .work-art:after{position:absolute;inset:auto 0 38%;text-align:center;color:#d8b372;font-family:Cinzel,serif;font-size:92px;line-height:1;text-shadow:0 20px 55px #000;opacity:.82}
+    .art-1{background-image:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.86)),url('assets/img/ankh.png')}.art-2,.art-3,.art-4{background-image:linear-gradient(180deg,rgba(0,0,0,.24),rgba(0,0,0,.88)),url('assets/img/fundo.png')}
     .art-1:after{content:"☥"}.art-2:after{content:"𓃭"}.art-3:after{content:"♜"}.art-4:after{content:"✦"}
     .work-card:hover .work-art{transform:scale(1.05)}
+    @media(max-width:980px){.hero{min-height:780px;background-position:center}.hero-bg{place-items:start center;right:0;opacity:.52}.hero-bg img{width:min(92vw,560px);transform:translate(18%,110px)}.hero:before{background-size:260px auto;background-position:5% 70%}}
+    @media(max-width:620px){body{background-attachment:scroll}.hero{min-height:720px}.hero-bg{opacity:.38}.hero-bg img{width:118vw;transform:translate(22%,170px)}.about{background-size:280px auto;background-position:center 12%}.work-art:after{font-size:72px}}
   </style>
 </head>
 <body>
@@ -30,7 +47,7 @@
 
   <main id="top">
     <section class="hero section-pad">
-      <div class="hero-bg" aria-hidden="true"><img src="assets/img/hero-anubis.svg" alt=""></div>
+      <div class="hero-bg" aria-hidden="true"><img src="assets/img/anubis.png" alt=""></div>
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <p class="eyebrow">Tatuagens black & grey | Realismo</p>
