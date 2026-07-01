@@ -1,0 +1,19 @@
+{
+  "name": "Meduri Tattoo",
+  "short_name": "Meduri",
+  "description": "Tatuagens autorais em realismo black and grey com Meduri em São Paulo.",
+  "start_url": "https://ankh.art.br/v2/",
+  "scope": "https://ankh.art.br/v2/",
+  "display": "standalone",
+  "background_color": "#020202",
+  "theme_color": "#020202",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "https://ankh.art.br/v2/assets/img/ankh.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
